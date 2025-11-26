@@ -1,42 +1,41 @@
-#pragma once
-
-#include <iomanip>
-#include <iostream>
+#pragma once 
+#include <string>
 #include <algorithm>
 #include <limits.h>
+#include <iostream>
+#include <iomanip>
 
 class bigint{
+
     private:
-        std::string digits;
+        std::string _digits;
+
     public:
+        //constructor & destructor
         bigint();
+        bigint(unsigned long long n);
         bigint(std::string str);
-        bigint(long long n);
-        bigint(const bigint& src);
-        bigint& operator= (const bigint& src);
         ~bigint();
 
-        std::string getDigits() const;
+        //copy contructor
+        bigint(const bigint& other);
+        bigint& operator= (const bigint& other);
 
-        bigint operator+ (const bigint& other) const;
-        bigint& operator+= (const bigint& other);
+        //comparissons
+        bool operator >(const bigint& other)const;
+        bool operator <(const bigint& other)const;
+        bool operator <=(const bigint& other)const;
+        bool operator >=(const bigint& other)const;
+        bool operator ==(const bigint& other)const;
+        bool operator !=(const bigint& other)const;
+        
+        std::string getdigits()const;
 
-        bigint& operator++();
-        bigint operator++(int);
 
-        bigint operator<< (int n);
-        bigint operator>> (int n);
-        bigint& operator<<= (int n);
-        bigint& operator>>= (int n);
-        bigint& operator>>= (const bigint& other);
-
-        bool operator== (const bigint& other) const;
-        bool operator!= (const bigint& other) const;
-        bool operator> (const bigint& other) const;
-        bool operator< (const bigint& other) const;
-        bool operator>= (const bigint& other) const;
-        bool operator<= (const bigint& other) const;
-};
-
-std::ostream& operator<< (std::ostream& output, const bigint& obj);
-int toInt(const bigint& obj);
+        
+        
+        
+    };
+    
+    //for printing
+    std::ostream& operator<<(const std::ostream& output, const bigint& obj);

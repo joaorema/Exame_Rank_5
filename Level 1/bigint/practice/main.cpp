@@ -5,6 +5,10 @@ int main()
     const bigint a(42);
     bigint b(21), c, d(1337), e(d);
 
+    std::cout << "a = " << a << std::endl;
+
+
+    /*
     std::cout << "a = " << a << std::endl; //42
     std::cout << "b = " << b << std::endl; //21
     std::cout << "c = " << c << std::endl; //0
@@ -26,7 +30,7 @@ int main()
     std::cout << "(d != a) = " << (d != a) << std::endl; //1
     std::cout << "(d <= a) = " << (d <= a) << std::endl; //0
     std::cout << "(d >= a) = " << (d >= a) << std::endl; //1
-
+    */
     return (0);
 }
 
